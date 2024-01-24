@@ -5,8 +5,8 @@ import { Prompt } from './components/Prompt.js'
 
 function App() {
     const [task, setTask] = useState([{key: "S", time: 427}]);
+    const promptReference = useRef(null);
 
-    console.log(task)
     const changePrompt = () => {
         const taskMsg = {
             key: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase(),
@@ -20,6 +20,7 @@ function App() {
         time={e.time}/>)
 
     useEffect(() => {
+        promptReference.current?.scrollIntoView();
         function handleKeyPress(event) {
             changePrompt();
             console.log(task);
@@ -28,7 +29,7 @@ function App() {
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
         };
-    }, []);
+    }, [task]);
   return (
     <div className="App">
         <div className="Console">
@@ -40,6 +41,7 @@ function App() {
             <div className="Tasks">
                 <p>---</p>
                 {taskList}
+                <div ref={promptReference}></div>
             </div>
         </div>
     </div>
