@@ -54,6 +54,30 @@ function MyButton() {
   );
 }
 function App() {
+    const [task, setTask] = useState([]);
+
+    const changePrompt = () => {
+        const taskMsg = {
+            time: Math.floor(Math.random() * 901),
+            key: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase()
+        }
+        setTask(prevTask => [...prevTask, taskMsg]);
+    }
+
+    const taskList = task.map(e => <Prompt
+        key={e.key}
+        time={e.time}/>)
+
+    useEffect(() => {
+        function handleKeyPress(event) {
+            changePrompt();
+            console.log(task);
+        }
+        window.addEventListener('keydown', handleKeyPress);
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
   return (
     <div className="App">
         <div className="Console">
@@ -63,7 +87,8 @@ function App() {
             </div>
             <hr />
             <div className="Tasks">
-                <Prompt/>
+                <p>---</p>
+                {taskList}
             </div>
         </div>
     </div>

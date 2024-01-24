@@ -1,3 +1,7 @@
+*{
+  background: black;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -6,7 +10,6 @@
   background-image: radial-gradient(
           rgba(0, 9, 0, 0.88), black 120%
   );
-  height: 100vh;
   font: 1rem Inconsolata, monospace;
   color: green;
   text-shadow: 0 0 5px #007f00;
@@ -19,6 +22,7 @@ hr {
 
 .Console{
   width: 1080px;
+  cursor: default;
   /*
   padding: 1.5rem;
   border: 2px solid #0f0;
