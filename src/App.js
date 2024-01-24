@@ -2,66 +2,17 @@ import React from "react";
 import './App.css';
 import { useState, useEffect, useRef  } from 'react';
 import { Prompt } from './components/Prompt.js'
-const Timer = () => {
-    const [timer, setTimer] = useState(0);
-    const [now, setNow] = useState(false);
 
-    const intervalRef = useRef(0);
-
-    useEffect(() => {
-        function handleKeyPress(event) {
-            handleReset();
-        }
-        window.addEventListener('keydown', handleKeyPress);
-        return () => {
-            window.removeEventListener('keydown', handleKeyPress);
-        };
-    }, []);
-
-    const handleStart = () => {
-        setTimer(Date.now());
-        setNow(Date.now());
-        intervalRef.current = setInterval(() =>{
-            setTimer(Date.now());
-            }, 1);
-    };
-
-    let timePassed = Math.floor((timer-now)/60);
-    const handleReset = () => {
-        clearInterval(intervalRef.current)
-    };
-
-    useEffect(() => {
-        handleStart();
-    }, []); // Empty dependency array
-
-    return(
-        <p>{timePassed}</p>
-    );
-}
-
-function MyButton() {
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
-
-  return (
-      <button onClick={handleClick}>
-        Clicked {count} times
-      </button>
-  );
-}
 function App() {
-    const [task, setTask] = useState([]);
+    const [task, setTask] = useState([{key: "S", time: 427}]);
 
+    console.log(task)
     const changePrompt = () => {
         const taskMsg = {
+            key: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase(),
             time: Math.floor(Math.random() * 901),
-            key: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase()
         }
-        setTask(prevTask => [...prevTask, taskMsg]);
+        setTask(prevTask => [...prevTask, taskMsg])
     }
 
     const taskList = task.map(e => <Prompt
