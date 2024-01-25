@@ -3,6 +3,7 @@ import './App.css';
 import { useState, useEffect, useRef  } from 'react';
 import { Prompt } from './components/Prompt.js'
 
+
 function App() {
     const [task, setTask] = useState([{key_pressed: "S", time: 427}]);
     const promptReference = useRef(null);
