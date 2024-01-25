@@ -9,21 +9,21 @@ function App() {
 
     const changePrompt = () => {
         const taskMsg = {
-            key: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase(),
-            time: Math.floor(Math.random() * 901),
+            key_pressed: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase(),
+            time: Math.floor(Math.random() * 901)
         }
         setTask(prevTask => [...prevTask, taskMsg])
     }
 
     const taskList = task.map(e => <Prompt
-        key={e.key}
+        key_pressed={e.key_pressed}
         time={e.time}/>)
 
     useEffect(() => {
         promptReference.current?.scrollIntoView();
         function handleKeyPress(event) {
             changePrompt();
-            console.log(task);
+            //console.log(task);
         }
         window.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -41,6 +41,7 @@ function App() {
             <div className="Tasks">
                 <p>---</p>
                 {taskList}
+                <span> > <span id="Flickering_box">▮</span></span>
                 <div ref={promptReference}></div>
             </div>
         </div>

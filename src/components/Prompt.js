@@ -1,10 +1,11 @@
 import React from "react";
 
 export const Prompt = (props) => {
-    console.log(props.key,props.time)
+    console.log(props.key_pressed,props.time)
     return(
-        <div className="container">
-            <p> > Please PRESS '{props.key || String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase()}' on your KEYBOARD for {props.time || "427"} ms.</p>
+        <div className="Prompt_Message">
+            <p> > Please PRESS '{props.key_pressed || "S"}' on your KEYBOARD for {props.time} ms.</p>
+            <br/>
             <p>---</p>
         </div>
     )
