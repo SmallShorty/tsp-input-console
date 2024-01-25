@@ -1,7 +1,6 @@
 import React from "react";
 
 export const Prompt = (props) => {
-    console.log(props.key_pressed,props.time)
     return(
         <div className="Prompt_Message">
             <p> > Please PRESS '{props.key_pressed || "S"}' on your KEYBOARD for {props.time} ms.</p>

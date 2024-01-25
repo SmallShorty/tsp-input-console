@@ -4,7 +4,7 @@ import { useState, useEffect, useRef  } from 'react';
 import { Prompt } from './components/Prompt.js'
 
 function App() {
-    const [task, setTask] = useState([{key: "S", time: 427}]);
+    const [task, setTask] = useState([{key_pressed: "S", time: 427}]);
     const promptReference = useRef(null);
 
     const changePrompt = () => {
@@ -22,8 +22,12 @@ function App() {
     useEffect(() => {
         promptReference.current?.scrollIntoView();
         function handleKeyPress(event) {
-            changePrompt();
-            //console.log(task);
+            if (event.key.toUpperCase()===task[task.length - 1]["key_pressed"]){
+                changePrompt();
+            }
+            //console.log(event.key.toUpperCase());
+            //console.log(task[task.length - 1]["key_pressed"]);
+            //changePrompt();
         }
         window.addEventListener('keydown', handleKeyPress);
         return () => {
