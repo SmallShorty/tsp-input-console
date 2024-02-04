@@ -9,7 +9,6 @@ function App() {
     const promptReference = useRef(null);
     const [modalActive, setModalActive] = useState(true);
 
-
     const changePrompt = () => {
         const taskMsg = {
             key_pressed: String.fromCharCode(Math.floor(Math.random() * 26) + 97).toUpperCase(),
