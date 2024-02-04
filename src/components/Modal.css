@@ -1,22 +1,27 @@
 .modal{
     height: 100vh;
     width: 100vw;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0);
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: auto;
+    opacity: 0;
+    transition: 0.3s ease-out;
     transform: scale(0);
+    cursor: none;
 }
 
 .modal.active{
+    cursor: default;
+    opacity: 1;
     transform: scale(1);
 }
 
 .modal__content{
+    cursor: none;
     padding: 30px;
     font: 1.3rem Inconsolata, monospace;
     color: #c5c3bc;
@@ -25,25 +30,44 @@
     background-color: black;
     border: 3px solid #34322f;
     border-radius: 30px;
-    width: 675px;
+    width: 630px;
     height: min-content;
+    transform: scaleY(0.25);
+    transition: 0.3s all;
+}
+
+.modal__content.active{
+    transform: scaleY(1);
+    cursor: default;
+}
+
+.modal__content p{
+    cursor: default;
 }
 
 .modal__confirm {
     height: 45px;
+    margin: 10px;
     padding: 10px 5rem;
     font: 1.3rem Inconsolata, monospace;
     color: #c5c3bc;
     text-align: center;
     text-shadow: none;
-    background-color: black;
+    background: rgb(27 26 25);
+    box-shadow: 0px 0px 16px 10px rgba(0, 0, 0, 0.9) inset;
     border: 3px solid #34322f;
     border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+
 
 .modal__confirm:hover{
     cursor: pointer;
+    outline: 5px #C0BDB8;
+}
+
+.modal__confirm:active{
+    cursor: none;
+    color: black;
+    background: #C0BDB8;
+    box-shadow: 0px 0px 65px -3px rgba(192, 189, 184, 0.5);
 }

@@ -1,4 +1,5 @@
 *{
+  cursor: none;
   background: black;
   overflow-y: hidden; /* Hide vertical scrollbar */
 }
@@ -14,7 +15,6 @@
   font: 1rem Inconsolata, monospace;
   color: #1d9b4e;
   text-shadow: 0 0 5px #1bfd4f;
-  cursor: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */

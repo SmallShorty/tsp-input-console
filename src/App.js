@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Prompt } from './components/Prompt.js';
 import {Modal} from "./components/Modal.js";
-import Player from "./components/Player.js";
+
 
 function App() {
     const [task, setTask] = useState([{ key_pressed: 'S', time: 427 }]);
     const promptReference = useRef(null);
     const [modalActive, setModalActive] = useState(true);
+
 
     const changePrompt = () => {
         const taskMsg = {
