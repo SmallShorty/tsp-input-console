@@ -28,7 +28,8 @@ function App() {
     useEffect(() => {
         promptReference.current?.scrollIntoView();
         function handleKeyPress(event) {
-            if (event.key.toUpperCase() === task[task.length - 1].key_pressed) {
+            console.log(event.code.substring(3));
+            if (event.code.substring(3) === task[task.length - 1].key_pressed) {
                 changePrompt();
             }
         }
